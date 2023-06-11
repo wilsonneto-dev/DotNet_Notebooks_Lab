@@ -12,6 +12,7 @@ Just a new test
 
 #!csharp
 
+#!import "./Product.cs"
 #r "nuget:NewtonSoft.Json"
 using Newtonsoft.Json;
 
@@ -37,3 +38,38 @@ using Microsoft.DotNet.Interactive;
 var input = await Kernel.GetInputAsync("Enter a number", typeHint: "file");
 
 input.Display();
+
+#!markdown
+
+Magic Commands:
+
+#!markdown
+
+https://github.com/dotnet/interactive/blob/main/docs/magic-commands.md
+
+#!markdown
+
+### Tutorial
+Link: https://github.com/dotnet/interactive/tree/main/docs
+
+#!csharp
+
+#!import "./Models.cs"
+using System.Net.Http;
+using System.Threading.Tasks;
+
+
+// Print the result.
+Console.WriteLine($"Bitcoin rate in USD: {result.bpi.USD.rate}");
+
+result.Display();
+
+#!csharp
+
+#!import "./Models.cs"
+#!import "./Service.cs"
+
+var service = new ApiService();
+
+var result = await service.GetBitcoinPrice();
+result.Display();
