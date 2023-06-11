@@ -1,0 +1,39 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+Console.WriteLine("Hi =)")
+
+#!markdown
+
+Just a new test
+
+#!csharp
+
+#r "nuget:NewtonSoft.Json"
+using Newtonsoft.Json;
+
+var product = new Product("Apple", new DateTime(2008, 12, 28), new[] { "Small", "Medium", "Large" });
+
+string json = JsonConvert.SerializeObject(product);
+product.Display();
+json.Display();
+
+#!csharp
+
+using Newtonsoft.Json;
+
+var product = new Product("Apple", new DateTime(2008, 12, 28), new[] { "Small", "Medium", "Large" });
+
+string json = JsonConvert.SerializeObject(product);
+Console.WriteLine(json);
+
+#!csharp
+
+using Microsoft.DotNet.Interactive;
+
+var input = await Kernel.GetInputAsync("Enter a number", typeHint: "file");
+
+input.Display();
