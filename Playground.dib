@@ -73,3 +73,36 @@ var service = new ApiService();
 
 var result = await service.GetBitcoinPrice();
 result.Display();
+
+#!markdown
+
+This is the code...
+
+#!csharp
+
+#r "nuget: XPlot.Plotly.Interactive"
+
+using XPlot.Plotly;
+
+var barChart = new Bar
+{
+    x = new[] { "giraffes", "orangutans", "monkeys" },
+    y = new[] { 20, 14, 23 }
+};
+
+var lineChart = new Scatter
+{
+    x = new[] {1, 2, 3, 4, 5 },
+    y = new[] {1, 4, 9, 16, 25 },
+    mode = "lines",
+    name = "my line chart"
+};
+
+var chart = Chart.Plot(barChart);
+chart.WithTitle("Bar Chart");
+
+var chart2 = Chart.Plot(lineChart);
+chart2.WithTitle("Line Chart");
+
+chart.Display();
+chart2.Display();
